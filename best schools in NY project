@@ -55,3 +55,18 @@ print(schools)
 280                     Brooklyn Technical High School  ...      1896
 45                       Eleanor Roosevelt High School  ...      1889
 68   High School for Mathematics, Science, and Engi...  ...      1889
+
+
+#from data camp, copied code. This was too difficult for me.
+
+# Which NYC borough has the highest standard deviation for total_SAT?
+boroughs = schools.groupby("borough")["total_SAT"].agg(["count", "mean", "std"]).round(2)
+
+# Filter for max std and make borough a column
+largest_std_dev = boroughs[boroughs["std"] == boroughs["std"].max()]
+
+# Rename the columns for clarity
+largest_std_dev = largest_std_dev.rename(columns={"count": "num_schools", "mean": "average_SAT", "std": "std_SAT"})
+
+# Optional: Move borough from index to column
+largest_std_dev.reset_index(inplace=True)
