@@ -1,0 +1,38 @@
+# Re-run this cell 
+2
+import pandas as pd
+3
+​
+4
+# Read in the data
+5
+schools = pd.read_csv("schools.csv")
+6
+​
+7
+# Preview the data
+8
+schools.head()
+9
+​
+10
+# Start coding here...
+11
+# Add as many cells as you like...
+12
+best_math_schools = schools[schools["average_math"] > 640]
+13
+best_math_schools = best_math_schools.sort_values(by="average_math", ascending=False)
+14
+print(best_math_schools)
+                                           school_name  ... percent_tested
+88                              Stuyvesant High School  ...           97.4
+170                       Bronx High School of Science  ...           97.0
+93                 Staten Island Technical High School  ...           99.7
+365  Queens High School for the Sciences at York Co...  ...           97.9
+68   High School for Mathematics, Science, and Engi...  ...           92.6
+280                     Brooklyn Technical High School  ...           95.5
+333                        Townsend Harris High School  ...           97.1
+174  High School of American Studies at Lehman College  ...           91.8
+0    New Explorations into Science, Technology and ...  ...            NaN
+45                       Eleanor Roosevelt High School  ...           86.0
